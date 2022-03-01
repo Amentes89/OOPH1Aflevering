@@ -32,15 +32,8 @@ namespace OOPH1Aflevering.Codes2
                 courses.Add(displayCourses);
             }
         }
-        public abstract void GetTeacher()
-        {
+        public abstract void GetTeacher();
 
-            foreach (string displayCourses in (Enum.GetNames(typeof(CourseCatogory))))
-            {
-                schoolCources.Add(Courses.FirstOrDefault(a => a.Contains("Programmering")));
-            }
-
-        }
     }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOPH1Aflevering.Codes2
 {
-    internal class Courses : Schooling
+    internal sealed class Courses : Schooling
     {
         public List<string> SchoolingCourses { get; set; }
 
@@ -16,35 +16,37 @@ namespace OOPH1Aflevering.Codes2
         }
         public override void SetCourses()
         {
-            List<string> schoolCources = new();
-            SchoolingCourses = schoolCources;
             base.SetCourses();
-
+           
             if (SchoolingName == SchoolingCategory.Programmeringslinje)
             {
-                foreach (string displayCourses in (Enum.GetNames(typeof(CourseCatogory))))
-                {
-                    schoolCources.Add(Courses.FirstOrDefault(a => a.Contains("Programmering")));
-                }
+
+                List<string> schoolingCourses = Courses.Where(a => a.Contains("Programmering")).ToList();
+                SchoolingCourses = schoolingCourses;
+                
             }
             if (SchoolingName == SchoolingCategory.Infrastrukturlinje)
             {
-                foreach (string displayCourses in (Enum.GetNames(typeof(CourseCatogory))))
-                {
-                    schoolCources.Add(Courses.FirstOrDefault(a => a.Contains("Netværk")));
-                }
+
+                List<string> schoolingCourses = Courses.Where(a => a.Contains("Netværk")).ToList();
+                SchoolingCourses = schoolingCourses;
+
             }
             if (SchoolingName == SchoolingCategory.Supporterlinje)
             {
-                foreach (string displayCourses in (Enum.GetNames(typeof(CourseCatogory))))
-                {
-                    schoolCources.Add(Courses.FirstOrDefault(a => a.Contains("Server")));
-                }
+
+                List<string> schoolingCourses = Courses.Where(a => a.Contains("Server")).ToList();
+                SchoolingCourses = schoolingCourses;
+
+
             }
         }
         public override void GetTeacher()
         {
-            
+            //foreach (string displayteacher in (Enum.GetNames(typeof(Colorsignal))))
+            //{
+            //    Console.WriteLine();
+            //}
         }
     }
 }
