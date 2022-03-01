@@ -1,4 +1,4 @@
-﻿//Master, Quiz
+﻿//Projekt, 1
 
 global using OOPH1Aflevering.Codes1;
 
