@@ -1,6 +1,8 @@
-﻿//Projekt, 1
+﻿//Projekt, 2
 
 global using OOPH1Aflevering.Codes1;
+global using OOPH1Aflevering.Codes2;
+global using System.ComponentModel;
 
 #region QuizTest
 //MotorKøretøj motorKøretøj = new MotorKøretøj();
@@ -97,3 +99,36 @@ global using OOPH1Aflevering.Codes1;
 //Vi kan se at SetSyn har to metoder, deraf er den overloadet.
 #endregion
 
+SchoolingCategory schoolingCategory = new();
+Courses c = new(schoolingCategory);
+
+
+Console.WriteLine("Vælg uddannelseslinje:");
+Console.WriteLine("(1) - Programmering");
+Console.WriteLine("(2) - Support");
+Console.WriteLine("(3) - Infrastruktur");
+
+Console.WriteLine("Vælg 1 ,2 eller 3: ");
+
+Console.ReadLine();
+
+returnpunktuddannelseslinje:
+var menusvar = Console.ReadKey(true);
+switch (menusvar.Key)
+{
+    case ConsoleKey.D1:
+        schoolingCategory = (global::OOPH1Aflevering.Codes2.SchoolingCategory)1;
+        c.SetCourses();
+        break;
+    case ConsoleKey.D2:
+        schoolingCategory = (global::OOPH1Aflevering.Codes2.SchoolingCategory)2;
+        c.SetCourses();
+        break;
+    case ConsoleKey.D3:
+        schoolingCategory = (global::OOPH1Aflevering.Codes2.SchoolingCategory)3;
+        c.SetCourses();
+        break;
+    
+    default: Console.WriteLine("Forkert Indtastning. Prøv igen.");
+        goto returnpunktuddannelseslinje;
+}
