@@ -14,6 +14,7 @@ namespace OOPH1Aflevering.Codes2
         public List<string>? Courses { get; set; }
         public Schooling(SchoolingCategory schoolingName)
         {
+            //Liste over lærere og deres fag. 
             List<TECPerson> teacherName = new()
             {
                 new TECPerson {FullName = "Niels Olesen", Uddannelseslinje = SchoolingCategory.Programmeringslinje},

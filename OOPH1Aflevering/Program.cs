@@ -1,9 +1,7 @@
 ﻿//Projekt_2, 1
-
 global using OOPH1Aflevering.Codes1;
 global using OOPH1Aflevering.Codes2;
 global using System.ComponentModel;
-
 #region QuizTest
 //MotorKøretøj motorKøretøj = new MotorKøretøj();
 //MotorKøretøj motorKøretøj = new Bil();
@@ -98,15 +96,13 @@ global using System.ComponentModel;
 //Spørgsmål 1:
 //Vi kan se at SetSyn har to metoder, deraf er den overloadet.
 #endregion
-
 SchoolingCategory school = new();
 List<TECPerson> persons = new();
-
 Course t = new(school);
-
 returpunktstart:
 while (true)
 {
+    //Start Menu
     Console.ForegroundColor = ConsoleColor.White;
     Console.WriteLine("Vælg uddannelseslinje");
     Console.WriteLine("1: Programmering");
@@ -117,6 +113,7 @@ returpunktmenu:
     var choice = Console.ReadKey(true);
     switch (choice.Key)
     {
+        // Tast funktion for menuen. 
         case ConsoleKey.D1:
             t.SchoolingName = SchoolingCategory.Programmeringslinje;
             t.SetCourses();
@@ -135,7 +132,7 @@ returpunktmenu:
     Console.Clear();
     if (choice.Key == ConsoleKey.D1 || choice.Key == ConsoleKey.D2 || choice.Key == ConsoleKey.D3)
     {
-        Console.WriteLine($"{t.ToString()}");
+        Console.WriteLine(t.ToString());
         Console.WriteLine("------------------------------------------------------------");
         Console.Write("Fag og lærer tilhørende ");
         if (t.SchoolingName == SchoolingCategory.Programmeringslinje)
@@ -157,34 +154,36 @@ returpunktmenu:
         Console.WriteLine(" er highlighted.");
         Console.WriteLine("------------------------------------------------------------");
         string temp2 = null;
+        t.Courses.Sort();
         foreach (string temp in t.Courses)
         {
             if (t.SchoolingName == SchoolingCategory.Programmeringslinje && temp.Contains("Programmering"))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 temp2 = temp.Replace("_", " ");
-                Console.WriteLine($"{temp2}");
+                Console.WriteLine(temp2);
             }
             else if (t.SchoolingName == SchoolingCategory.Supporterlinje && temp.Contains("Server"))
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 temp2 = temp.Replace("_", " ");
-                Console.WriteLine($"{temp2}");
+                Console.WriteLine(temp2);
             }
             else if (t.SchoolingName == SchoolingCategory.Infrastrukturlinje && temp.Contains("Netværk"))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 temp2 = temp.Replace("_", " ");
-                Console.WriteLine($"{temp2}");
+                Console.WriteLine(temp2);
             }
             else
             {
                 temp2 = temp.Replace("_", " ");
-                Console.WriteLine($"{temp2}");
+                Console.WriteLine(temp2);
             }
             Console.ForegroundColor = ConsoleColor.White;
         }
         Console.WriteLine("------------------------------\nLærer:\n------------------------------");
+
         foreach (var lærerNavn in t.Teachers)
         {
             if (t.SchoolingName == lærerNavn.Uddannelseslinje)

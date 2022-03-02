@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOPH1Aflevering.Codes2
 {
+    // Vores Enums. Description kan bruges til at skifte navnet på ens enum ud med det der står i Description. 
    enum CourseCatogory
     {
         [Description("Grundlæggende Programmering")]
