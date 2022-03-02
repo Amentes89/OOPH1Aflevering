@@ -44,7 +44,11 @@ namespace OOPH1Aflevering.Codes2
                 }
             }
         }
-        
+        public override string ToString()
+        {
+            return "\n** OOP H1 Afleveringsopgave **\n";
+        }
+
     }
 }
     

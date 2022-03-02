@@ -96,6 +96,10 @@ global using System.ComponentModel;
 //Spørgsmål 1:
 //Vi kan se at SetSyn har to metoder, deraf er den overloadet.
 #endregion
+if (Convert.ToString(Environment.OSVersion).Contains("Windows"))
+{
+    Console.SetWindowSize(61, 30);
+}
 SchoolingCategory school = new();
 List<TECPerson> persons = new();
 Course t = new(school);
@@ -130,6 +134,7 @@ returpunktmenu:
             goto returpunktmenu;
     }
     Console.Clear();
+    //Udskriver tekst med passende farve på de udvalgte ord til skærm.
     if (choice.Key == ConsoleKey.D1 || choice.Key == ConsoleKey.D2 || choice.Key == ConsoleKey.D3)
     {
         Console.WriteLine(t.ToString());
@@ -154,6 +159,7 @@ returpunktmenu:
         Console.WriteLine(" er highlighted.");
         Console.WriteLine("------------------------------------------------------------");
         string temp2 = null;
+        //Sorterer listen af fag og udskriver til skærm, med de udvalgte fag farvet.
         t.Courses.Sort();
         foreach (string temp in t.Courses)
         {
@@ -182,8 +188,9 @@ returpunktmenu:
             }
             Console.ForegroundColor = ConsoleColor.White;
         }
+        //Sorterer listen af lærere og udskriver til skærm, med den udvalgte lærer farvet.
         Console.WriteLine("------------------------------\nLærer:\n------------------------------");
-
+        t.Teachers.Sort();
         foreach (var lærerNavn in t.Teachers)
         {
             if (t.SchoolingName == lærerNavn.Uddannelseslinje)
@@ -191,23 +198,23 @@ returpunktmenu:
                 if (lærerNavn.FullName == "Niels Olesen")
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"{lærerNavn.FullName}");
+                    Console.WriteLine(lærerNavn.FullName);
                 }
                 else if (lærerNavn.FullName == "Bo Hansen")
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"{lærerNavn.FullName}");
+                    Console.WriteLine(lærerNavn.FullName);
                 }
                 else if (lærerNavn.FullName == "Ole Nielsen")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"{lærerNavn.FullName}");
+                    Console.WriteLine(lærerNavn.FullName);
                 }
                 Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
-                Console.WriteLine($"{lærerNavn.FullName}");
+                Console.WriteLine(lærerNavn.FullName);
             }
         }
         Console.WriteLine("------------------------------\n");

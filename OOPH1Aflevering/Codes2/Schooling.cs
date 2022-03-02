@@ -32,7 +32,7 @@ namespace OOPH1Aflevering.Codes2
                 courses.Add(displayCourses);
             }
         }
-        public abstract void GetTeacher();
+        public abstract void GetTeacher(); 
     }
 }
 
